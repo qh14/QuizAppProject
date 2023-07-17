@@ -77,10 +77,6 @@ public class QuizActivity extends AppCompatActivity {
                 }
             }
         });
-
-//        questions.add(new Question("What ia android","operation system","Mobile devise","i don't know","none of the above","operation system"));
-//        questions.add(new Question("What ia windows","operation system","laptop","i don't know","none of the above","operation system"));
-
         resetTimer();
 
     }
@@ -105,8 +101,9 @@ public class QuizActivity extends AppCompatActivity {
         if (timer != null)
             timer.cancel();
         timer.start();
-
-        if (index < questions.size()) {
+        System.out.println(questions.size());
+        System.out.println(index);
+        if (index <= questions.size()-1) {
             binding.questionCounter.setText(String.format("%d/%d", (index+1), questions.size()));
             question = questions.get(index);
             binding.question.setText(question.getQuestion());
@@ -115,6 +112,7 @@ public class QuizActivity extends AppCompatActivity {
             binding.option3.setText(question.getOption3());
             binding.option4.setText(question.getOption4());
         }
+
     }
 
     void checkAnswer(TextView textView) {
@@ -151,7 +149,8 @@ public class QuizActivity extends AppCompatActivity {
                 break;
             case R.id.next:
                 reset();
-                  if (index <= questions.size()){
+                System.out.println(index+" " + questions.size());
+                  if (index < (questions.size()-1)){
                       index++;
                       setNextQuestion();
 
@@ -160,7 +159,6 @@ public class QuizActivity extends AppCompatActivity {
                       intent.putExtra("correct", correctAnswer);
                       intent.putExtra("total", questions.size());
                       startActivity(intent);
-
                   }
                     break;
 

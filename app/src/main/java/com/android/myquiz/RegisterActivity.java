@@ -150,6 +150,9 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         }
+    public void LoggingIn(View view) {
+        startActivity(new Intent(this,LoginActivity.class));
+    }
     }
 
 
@@ -244,8 +247,6 @@ public class RegisterActivity extends AppCompatActivity {
 //        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
 //    }
 //
-//    public void LoggingIn(View view) {
-//        startActivity(new Intent(this,LoginActivity.class));
-//    }
+
 
 
